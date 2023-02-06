@@ -2,6 +2,11 @@
   flex: 9;
 }
 
+.loader {
+  flex: 9;
+  height: calc(100vh-50px);
+}
+
 .singlePostWrapper {
   padding: 20px;
   padding-right: 0;

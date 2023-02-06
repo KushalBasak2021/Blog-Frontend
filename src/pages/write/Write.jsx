@@ -110,46 +110,48 @@ const Write = () => {
   };
 
   return (
-    <div className="write">
-      {file && (
-        <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
-      )}
-      <form className="writeForm" onSubmit={handleSubmit}>
-        <div className="writeFormGroup">
-          <label htmlFor="fileInput">
-            <i className="writeIcon fas fa-plus"></i>
-          </label>
-          <input
-            type="file"
-            id="fileInput"
-            style={{ display: "none" }}
-            onChange={(e) => setFile(e.target.files[0])}
-          />
-          <input
-            type="text"
-            placeholder="Title"
-            className="writeInput"
-            autoFocus={true}
-            name="title"
-            value={post.title}
-            onChange={handleChange}
-          />
-        </div>
-        <div className="writeFormGroup">
-          <textarea
-            placeholder="Tell your story..."
-            type="text"
-            className="writeInput writeText"
-            name="desc"
-            value={post.desc}
-            onChange={handleChange}
-          ></textarea>
-        </div>
-        <button className="writeSubmit" type="submit">
-          Publish
-        </button>
-      </form>
-    </div>
+    <>
+      <div className="write">
+        {file && (
+          <img className="writeImg" src={URL.createObjectURL(file)} alt="" />
+        )}
+        <form className="writeForm" onSubmit={handleSubmit}>
+          <div className="writeFormGroup">
+            <label htmlFor="fileInput">
+              <i className="writeIcon fas fa-plus"></i>
+            </label>
+            <input
+              type="file"
+              id="fileInput"
+              style={{ display: "none" }}
+              onChange={(e) => setFile(e.target.files[0])}
+            />
+            <input
+              type="text"
+              placeholder="Title"
+              className="writeInput"
+              autoFocus={true}
+              name="title"
+              value={post.title}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="writeFormGroup">
+            <textarea
+              placeholder="Tell your story..."
+              type="text"
+              className="writeInput writeText"
+              name="desc"
+              value={post.desc}
+              onChange={handleChange}
+            ></textarea>
+          </div>
+          <button className="writeSubmit" type="submit">
+            Publish
+          </button>
+        </form>
+      </div>
+    </>
   );
 };
 

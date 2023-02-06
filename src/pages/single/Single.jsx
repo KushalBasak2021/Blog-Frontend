@@ -5,10 +5,12 @@ import SinglePost from "../../components/singlePost/SinglePost";
 
 const Single = () => {
   return (
-    <div className="single">
-      <SinglePost />
-      <Sidebar />
-    </div>
+    <>
+      <div className="single">
+        <SinglePost />
+        <Sidebar />
+      </div>
+    </>
   );
 };
 

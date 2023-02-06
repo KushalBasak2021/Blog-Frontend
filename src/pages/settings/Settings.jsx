@@ -69,70 +69,72 @@ const Settings = () => {
   console.log(user);
 
   return (
-    <div className="settings">
-      <div className="settingsWrapper">
-        <div className="settingsTitle">
-          <span className="settingsUpdateTitle">Update Your Account</span>
-          <span className="settingsDeleteTitle">Delete Account</span>
-        </div>
-        <form className="settingsForm" onSubmit={handleSubmit}>
-          <label>Profile Picture</label>
-          <div className="settingsPP">
-            {user.profilePic !== "" ? (
-              <img src={PF + user.profilePic} alt="" />
-            ) : (
-              <img
-                src={
-                  file
-                    ? URL.createObjectURL(file)
-                    : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
-                }
-                alt=""
-              />
-            )}
-            <label htmlFor="fileInput">
-              <i className="settingsPPIcon far fa-user-circle"></i>
-            </label>
-            <input
-              id="fileInput"
-              type="file"
-              style={{ display: "none" }}
-              className="settingsPPInput"
-              onChange={(e) => setFile(e.target.files[0])}
-            />
+    <>
+      <div className="settings">
+        <div className="settingsWrapper">
+          <div className="settingsTitle">
+            <span className="settingsUpdateTitle">Update Your Account</span>
+            <span className="settingsDeleteTitle">Delete Account</span>
           </div>
-          <label>Username</label>
-          <input
-            type="text"
-            placeholder="Safak"
-            name="name"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <label>Email</label>
-          <input
-            type="email"
-            placeholder="safak@gmail.com"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <label>Password</label>
-          <input
-            type="password"
-            placeholder="Password"
-            name="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button className="settingsSubmitButton" type="submit">
-            Update
-          </button>
-        </form>
-        {error && <span className="error">Please provide new password</span>}
-        {success && <span className="success">Profile has been updated</span>}
+          <form className="settingsForm" onSubmit={handleSubmit}>
+            <label>Profile Picture</label>
+            <div className="settingsPP">
+              {user.profilePic !== "" ? (
+                <img src={PF + user.profilePic} alt="" />
+              ) : (
+                <img
+                  src={
+                    file
+                      ? URL.createObjectURL(file)
+                      : "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                  }
+                  alt=""
+                />
+              )}
+              <label htmlFor="fileInput">
+                <i className="settingsPPIcon far fa-user-circle"></i>
+              </label>
+              <input
+                id="fileInput"
+                type="file"
+                style={{ display: "none" }}
+                className="settingsPPInput"
+                onChange={(e) => setFile(e.target.files[0])}
+              />
+            </div>
+            <label>Username</label>
+            <input
+              type="text"
+              placeholder="Safak"
+              name="name"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="safak@gmail.com"
+              name="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <label>Password</label>
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button className="settingsSubmitButton" type="submit">
+              Update
+            </button>
+          </form>
+          {error && <span className="error">Please provide new password</span>}
+          {success && <span className="success">Profile has been updated</span>}
+        </div>
+        <Sidebar />
       </div>
-      <Sidebar />
-    </div>
+    </>
   );
 };
 
